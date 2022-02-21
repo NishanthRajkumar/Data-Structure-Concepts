@@ -17,7 +17,9 @@ list.Display();
 Console.WriteLine("List 1");
 list.Display();
 
-Console.WriteLine("Searching for 30");
-Console.WriteLine(list.Search(30));
-Console.WriteLine("Searching for 48");
-Console.WriteLine(list.Search(48));
+Console.WriteLine("Insert 40 after 30");
+int pos = list.Index(30);
+list.Insert(pos + 1, 40);
+
+Console.WriteLine("updated list:");
+list.Display();
