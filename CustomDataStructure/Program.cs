@@ -14,9 +14,10 @@ Console.WriteLine("\nInserting 30 at pos 1");
 list.Insert(1, 30);
 list.Display();
 
-Console.WriteLine("Pop last from list");
-list.PopLast();
-list.PopLast();
-
 Console.WriteLine("List 1");
 list.Display();
+
+Console.WriteLine("Searching for 30");
+Console.WriteLine(list.Search(30));
+Console.WriteLine("Searching for 48");
+Console.WriteLine(list.Search(48));

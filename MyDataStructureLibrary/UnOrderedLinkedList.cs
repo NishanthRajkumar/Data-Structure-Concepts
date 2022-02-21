@@ -95,4 +95,16 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
             temp.next = null;
         }
     }
+
+    public bool Search(T data)
+    {
+        Node<T> temp = head;
+        while (temp != null)
+        {
+            if (temp.data.CompareTo(data) == 0)
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
 }
