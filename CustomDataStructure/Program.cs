@@ -14,9 +14,9 @@ Console.WriteLine("\nInserting 30 at pos 1");
 list.Insert(1, 30);
 list.Display();
 
-Console.WriteLine("Pop from list");
-list.Pop();
-
+Console.WriteLine("Pop last from list");
+list.PopLast();
+list.PopLast();
 
 Console.WriteLine("List 1");
 list.Display();
