@@ -1,5 +1,8 @@
 ﻿namespace MyDataStructureLibrary;
 
+/// <summary>
+/// Handles stack operations
+/// </summary>
 public class StackList<T> : LinkedList<T> where T : IComparable
 {
     /// <summary>
@@ -29,6 +32,9 @@ public class StackList<T> : LinkedList<T> where T : IComparable
         return head.data;
     }
 
+    /// <summary>
+    /// Pops the first element in stack.
+    /// </summary>
     public new void Pop()
     {
         base.Pop();
