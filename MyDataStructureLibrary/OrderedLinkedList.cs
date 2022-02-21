@@ -3,52 +3,39 @@
 /// <summary>
 /// Creates and maintains ordered list
 /// </summary>
-/// <typeparam name="T">IComparable data types only</typeparam>
-public class OrderedLinkedList<T> where T : IComparable
+public class OrderedLinkedList<T> : LinkedList<T> where T : IComparable
 {
-    // An object of Onordered list variable is declared
-    private UnOrderedLinkedList<T> list;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="OrderedLinkedList{T}"/> class.
-    /// </summary>
-    public OrderedLinkedList()
-    {
-        list = new UnOrderedLinkedList<T>();
-    }
-
     /// <summary>
     /// Adds the specified data in Ordered list.
     /// </summary>
-    /// <param name="data">The data.</param>
-    public void Add(T data)
-    {
-        int index = GetIndex(data);
-        list.Insert(index, data);
-    }
-
-    /// <summary>
-    /// Gets the Index where the specified data is to be added in the sorted list
-    /// </summary>
-    public int GetIndex(T data)
+    public new void Add(T data)
     {
         int index = 0;
-        Node<T> temp = list.head;
+        Node<T> temp = head;
         while (temp != null)
         {
             if (temp.data.CompareTo(data) > 0)
-                return index;
+                break;
             temp = temp.next;
             index++;
         }
-        return index;
+        Insert(index, data);
     }
 
     /// <summary>
-    /// Displays the list.
+    /// Pops the first element in list.
     /// </summary>
-    public void Display()
+    public new void Pop()
     {
-        list.Display();
+        base.Pop();
+    }
+
+    /// <summary>
+    /// returns an empty instance of ordered list
+    /// </summary>
+    /// <returns>an instance of Ordered List</returns>
+    public static OrderedLinkedList<T> OrderedList()
+    {
+        return new OrderedLinkedList<T>();
     }
 }
