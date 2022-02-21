@@ -3,18 +3,11 @@
 Console.Title = "My Data Structure";
 Console.WriteLine("==========Custom Data Structure==========");
 
-StackList<int> stack = new StackList<int>();
-Console.WriteLine("Pushing to stack: 70 then 30 then 56");
-stack.Push(70);
-stack.Push(30);
-stack.Push(56);
-stack.Display();
+QueueList<int> queue = new QueueList<int>();
 
-while (stack.IsEmpty() is false)
-{
-    Console.WriteLine("Top element: " + stack.Peek());
-    Console.WriteLine("Popping....");
-    stack.Pop();
-    Console.WriteLine("List: ");
-    stack.Display();
-}
+Console.WriteLine("create a Queue of 56->30->70");
+queue.Enqueue(56);
+queue.Enqueue(30);
+queue.Enqueue(70);
+Console.WriteLine("Queue: ");
+queue.Display();
