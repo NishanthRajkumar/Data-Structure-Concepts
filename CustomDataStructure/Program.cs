@@ -3,21 +3,13 @@
 Console.Title = "My Data Structure";
 Console.WriteLine("==========Custom Data Structure==========");
 
-UnOrderedLinkedList<int> list = new UnOrderedLinkedList<int>();
+OrderedLinkedList<int> list = new OrderedLinkedList<int>();
 
-Console.WriteLine("Appending 56, 30, 70 to list");
-list.Append(56);
-list.Append(70);
-list.Insert(1, 30);
+Console.WriteLine("Adding 56, 30, 40, 70 to ordered list");
+list.Add(56);
+list.Add(30);
+list.Add(40);
+list.Add(70);
+
+Console.WriteLine("Sorted List: ");
 list.Display();
-
-Console.WriteLine("Insert 40 after 30");
-int pos = list.Index(30);
-list.Insert(pos + 1, 40);
-list.Display();
-
-Console.WriteLine("Remove 40");
-list.Remove(40);
-list.Display();
-
-Console.WriteLine("Size of list: " + list.Size());

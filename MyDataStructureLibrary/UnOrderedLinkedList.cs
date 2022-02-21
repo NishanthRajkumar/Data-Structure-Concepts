@@ -1,9 +1,17 @@
 ﻿namespace MyDataStructureLibrary;
 
-public class UnOrderedLinkedList<T> where T : IComparable<T>
+/// <summary>
+/// handles all operations in unordered list
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class UnOrderedLinkedList<T> where T : IComparable
 {
+    // Declared Node Object
     public Node<T> head;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UnOrderedLinkedList{T}"/> class.
+    /// </summary>
     public UnOrderedLinkedList()
     {
         head = null;
@@ -19,12 +27,22 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         return emptyList;
     }
 
+    /// <summary>
+    /// Determines whether the list is empty.
+    /// </summary>
+    /// <returns>
+    ///   <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+    /// </returns>
     public bool IsEmpty()
     {
         if (head == null)
             return true;
         return false;
     }
+
+    /// <summary>
+    /// Appends the specified data to end of list.
+    /// </summary>
     public void Append(T data)
     {
         Node<T> node = new Node<T>(data);
@@ -39,6 +57,9 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         }
     }
 
+    /// <summary>
+    /// Displays the list.
+    /// </summary>
     public void Display()
     {
         Node<T> temp = head;
@@ -49,6 +70,9 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         }
     }
 
+    /// <summary>
+    /// Adds the specified data at the begining of the list.
+    /// </summary>
     public void Add(T data)
     {
         Node<T> node = new Node<T>(data);
@@ -61,6 +85,11 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         }
     }
 
+    /// <summary>
+    /// Inserts data at the specified position.
+    /// </summary>
+    /// <param name="pos">The position.</param>
+    /// <param name="data">The data.</param>
     public void Insert(int pos, T data)
     {
         Node<T> temp = head;
@@ -76,11 +105,16 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
             Node<T> node = new Node<T>(data);
             for (int i = 1; i < pos; i++)
                 temp = temp.next;
+            if (temp == null)
+                return;
             node.next = temp.next;
             temp.next = node;
         }
     }
 
+    /// <summary>
+    /// Pops the first element in list.
+    /// </summary>
     public void Pop()
     {
         if (head == null)
@@ -89,6 +123,9 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
             head = head.next;
     }
 
+    /// <summary>
+    /// Pops the last element in list.
+    /// </summary>
     public void PopLast()
     {
         if (head == null)
@@ -102,6 +139,9 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         }
     }
 
+    /// <summary>
+    /// Searches the specified data.
+    /// </summary>
     public bool Search(T data)
     {
         Node<T> temp = head;
@@ -114,7 +154,11 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         return false;
     }
 
-
+    /// <summary>
+    /// Returns the index in the list where the data is found
+    /// </summary>
+    /// <param name="data">The data.</param>
+    /// <returns></returns>
     public int Index(T data)
     {
         int index = 0;
@@ -129,6 +173,10 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         return -1;
     }
 
+    /// <summary>
+    /// Removes the specified data.
+    /// </summary>
+    /// <param name="data">The data.</param>
     public void Remove(T data)
     {
         if (IsEmpty())
@@ -150,6 +198,10 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
         }
     }
 
+    /// <summary>
+    /// Returns the size of the list(No of elements in list)
+    /// </summary>
+    /// <returns></returns>
     public int Size()
     {
         int size = 0;
