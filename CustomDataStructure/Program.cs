@@ -11,3 +11,11 @@ queue.Enqueue(30);
 queue.Enqueue(70);
 Console.WriteLine("Queue: ");
 queue.Display();
+
+while (queue.IsEmpty() is false)
+{
+    Console.WriteLine("Dequeue....");
+    queue.Dequeue();
+    Console.WriteLine("Queue: ");
+    queue.Display();
+}
