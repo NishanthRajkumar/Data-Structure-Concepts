@@ -119,6 +119,8 @@ public abstract class LinkedList<T> where T : IComparable
     {
         if (head == null)
             return;
+        if (head.next == null)
+            head = null;
         else
         {
             Node<T> temp = head;
