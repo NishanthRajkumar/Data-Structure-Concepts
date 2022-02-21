@@ -74,4 +74,12 @@ public class UnOrderedLinkedList<T> where T : IComparable<T>
             temp.next = node;
         }
     }
+
+    public void Pop()
+    {
+        if (head == null)
+            return;
+        else
+            head = head.next;
+    }
 }
