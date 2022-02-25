@@ -3,7 +3,7 @@
 /// <summary>
 /// This is the base abstract class for all generic data structure lists
 /// </summary>
-public abstract class LinkedList<T> where T : IComparable
+public abstract class MyLinkedList<T> where T : IComparable
 {
     // Declared Node Object
     protected Node<T> head;
@@ -11,7 +11,7 @@ public abstract class LinkedList<T> where T : IComparable
     /// <summary>
     /// Initializes a new instance of the <see cref="UnOrderedLinkedList{T}"/> class.
     /// </summary>
-    public LinkedList()
+    public MyLinkedList()
     {
         head = null;
     }

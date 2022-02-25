@@ -4,7 +4,7 @@
 /// handles all operations in unordered list
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class UnOrderedLinkedList<T> : LinkedList<T> where T : IComparable
+public class UnOrderedLinkedList<T> : MyLinkedList<T> where T : IComparable
 {
     /// <summary>
     /// Creates and returns empty list.

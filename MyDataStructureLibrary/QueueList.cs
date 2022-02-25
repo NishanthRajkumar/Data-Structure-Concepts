@@ -3,7 +3,7 @@
 /// <summary>
 /// Handles Queue operations
 /// </summary>
-public class QueueList<T> : LinkedList<T> where T : IComparable
+public class QueueList<T> : MyLinkedList<T> where T : IComparable
 {
     /// <summary>
     /// return empty queue

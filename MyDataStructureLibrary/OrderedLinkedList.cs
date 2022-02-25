@@ -3,7 +3,7 @@
 /// <summary>
 /// Creates and maintains ordered list
 /// </summary>
-public class OrderedLinkedList<T> : LinkedList<T> where T : IComparable
+public class OrderedLinkedList<T> : MyLinkedList<T> where T : IComparable
 {
     /// <summary>
     /// Adds the specified data in Ordered list.

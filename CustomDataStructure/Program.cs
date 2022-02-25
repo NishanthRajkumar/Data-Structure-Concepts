@@ -3,19 +3,20 @@
 Console.Title = "My Data Structure";
 Console.WriteLine("==========Custom Data Structure==========");
 
-QueueList<int> queue = new QueueList<int>();
+// String used to test the word frequency count
+string testString = "To be or not to be";
 
-Console.WriteLine("create a Queue of 56->30->70");
-queue.Enqueue(56);
-queue.Enqueue(30);
-queue.Enqueue(70);
-Console.WriteLine("Queue: ");
-queue.Display();
+// Split the text into array string containing the words in text
+char[] separators = @" !.@\(){}[]?,".ToCharArray();
+string[] words = testString.ToLower().Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-while (queue.IsEmpty() is false)
-{
-    Console.WriteLine("Dequeue....");
-    queue.Dequeue();
-    Console.WriteLine("Queue: ");
-    queue.Display();
-}
+// HashTable to store all words as key and their count as Value
+MyHashTable<string, int> wordTable = new MyHashTable<string, int>(words.Length);
+
+foreach (string word in words)
+    if (wordTable.ContainsKey(word))
+        wordTable.Update(word, wordTable.Get(word) + 1);
+    else
+        wordTable.Add(word, 1);
+
+Console.WriteLine($"Frequency of 'to': {wordTable.Get("to")}");
