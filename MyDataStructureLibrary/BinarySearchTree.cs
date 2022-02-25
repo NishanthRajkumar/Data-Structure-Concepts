@@ -41,5 +41,15 @@ public class BinarySearchTree<T> where T : IComparable
     public void Display()
     {
         node.Display();
+        Console.WriteLine();
+    }
+
+    /// <summary>
+    /// Returns the size of the tree
+    /// </summary>
+    /// <returns></returns>
+    public int Size()
+    {
+        return BinaryNode<T>.Size(node);
     }
 }
