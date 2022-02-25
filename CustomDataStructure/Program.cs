@@ -9,4 +9,6 @@ testString = "Paranoids are not paranoid because they are paranoid but because t
 
 StringOperation wordOperation = new(testString);
 
-Console.WriteLine($"Frequency of 'Paranoid': {wordOperation.GetFrequency("paranoid")}");
+Console.WriteLine($"Frequency of 'Paranoid': {wordOperation.GetVal("paranoid").Count}");
+
+Console.WriteLine(wordOperation.GetAvoidedString());

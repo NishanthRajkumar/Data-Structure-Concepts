@@ -2,11 +2,14 @@
 
 namespace CustomDataStructure;
 
+/// <summary>
+/// String operations using Hash Table
+/// </summary>
 internal class StringOperation
 {
     private string text = string.Empty;
     private string[] words;
-    private MyHashTable<string, int> wordTable;
+    private MyHashTable<string, LinkedList<int>> wordTable;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StringOperation"/> class.
@@ -15,7 +18,8 @@ internal class StringOperation
     {
         this.text = text;
         SplitText();
-        wordTable = new MyHashTable<string, int>(words.Length);
+        wordTable = new MyHashTable<string, LinkedList<int>>(words.Length);
+        EnterToHashTable();
     }
 
     /// <summary>
@@ -26,7 +30,6 @@ internal class StringOperation
         // Split the text into array string containing the words in text
         char[] separators = @" !.@\(){}[]?,".ToCharArray();
         words = text.ToLower().Split(separators, StringSplitOptions.RemoveEmptyEntries);
-        EnterToHashTable();
     }
 
     /// <summary>
@@ -34,19 +37,50 @@ internal class StringOperation
     /// </summary>
     private void EnterToHashTable()
     {
-        foreach (string word in words)
-            if (wordTable.ContainsKey(word))
-                wordTable.Update(word, wordTable.Get(word) + 1);
-            else
-                wordTable.Add(word, 1);
+        for (int i = 0; i < words.Length; i++)
+        {
+            LinkedList<int> list = new LinkedList<int>();
+            list.AddLast(i);
+            if (wordTable.Get(words[i]) != null)
+            {
+                list = wordTable.Get(words[i]);
+                list.AddLast(i);
+                if (wordTable.ContainsKey(words[i]))
+                    wordTable.Remove(words[i]);
+            }
+            wordTable.Add(words[i], list);
+        }
     }
 
     /// <summary>
     /// Gets the frequency of the word.
     /// </summary>
-    public int GetFrequency(string word)
+    public LinkedList<int> GetVal(string word)
     {
         word = word.ToLower();
         return wordTable.Get(word);
+    }
+
+    public string GetAvoidedString()
+    {
+        LinkedList<int> avoidWordIndex = new LinkedList<int>();
+        foreach (string word in words)
+        {
+            LinkedList<int> temp = wordTable.Get(word);
+            if (temp.Count > avoidWordIndex.Count)
+                avoidWordIndex = temp;
+        }
+        return RemoveAvoidable(avoidWordIndex);
+    }
+
+    public string RemoveAvoidable(LinkedList<int> avoidWordIndex)
+    {
+        string str = "";
+        for (int i = 0; i < words.Length; i++)
+            if (avoidWordIndex.Contains(i) is false || i == avoidWordIndex.First())
+            {
+                str += words[i] + " ";
+            }
+        return str;
     }
 }
