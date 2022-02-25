@@ -61,6 +61,9 @@ internal class StringOperation
         return wordTable.Get(word);
     }
 
+    /// <summary>
+    /// Gets the string after the avoidable word is removed from text
+    /// </summary>
     public string GetAvoidedString()
     {
         LinkedList<int> avoidWordIndex = new LinkedList<int>();
@@ -73,6 +76,9 @@ internal class StringOperation
         return RemoveAvoidable(avoidWordIndex);
     }
 
+    /// <summary>
+    /// Removes the avoidable word
+    /// </summary>
     public string RemoveAvoidable(LinkedList<int> avoidWordIndex)
     {
         string str = "";
