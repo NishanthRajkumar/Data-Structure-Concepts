@@ -22,3 +22,6 @@ intTree.Add(67);
 intTree.Display();
 
 Console.WriteLine("Size of tree: " + intTree.Size());
+
+Console.WriteLine("Is 63 in tree? " + intTree.Search(63));
+Console.WriteLine("Is 72 in tree? " + intTree.Search(72));

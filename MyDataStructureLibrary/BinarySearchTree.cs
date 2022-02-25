@@ -52,4 +52,14 @@ public class BinarySearchTree<T> where T : IComparable
     {
         return BinaryNode<T>.Size(node);
     }
+
+    /// <summary>
+    /// Searches the specified data starting from root node.
+    /// </summary>
+    public bool Search(T data)
+    {
+        if (node == null)
+            return false;
+        return node.Search(data);
+    }
 }

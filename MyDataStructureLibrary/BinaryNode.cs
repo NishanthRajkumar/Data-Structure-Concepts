@@ -67,4 +67,23 @@ public class BinaryNode<T> where T : IComparable
             return 0;
         return Size(node.left) + 1 + Size(node.right);
     }
+
+    /// <summary>
+    /// Searches the specified data in the current node.
+    /// <para>Searches recursively</para>
+    /// </summary>
+    public bool Search(T data)
+    {
+        if (this.data.CompareTo(data) == 0)
+            return true;
+        if (this.data.CompareTo(data) < 0)
+        {
+            if (right == null)
+                return false;
+            return right.Search(data);
+        }
+        else if (left == null)
+            return false;
+        return left.Search(data);
+    }
 }
